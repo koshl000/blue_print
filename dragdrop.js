@@ -17,7 +17,7 @@ function drag_over(event) {
 }
 
 function click(event) {
-    let rect = document.getElementById('layout').getBoundingClientRect();
+    let rect = document.getElementsByTagName('body').item(0).getBoundingClientRect();
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
     var div = document.createElement('div');
@@ -37,9 +37,15 @@ function uuidv4() {
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
+function rectangle(){
 
+}
 function bezier() {
-    var ctx = document.getElementById('myCanvas').getContext("2d");
+    
+    var canvas = document.getElementById('myCanvas');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    var ctx=canvas.getContext("2d");
     ctx.beginPath();
     ctx.moveTo(20, 20);
     ctx.bezierCurveTo(20, 100, 200, 100, 200, 20);
